@@ -1,23 +1,25 @@
-import { View, StyleSheet } from "react-native";
-import React from "react";
-import Equipos from "./text";
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import Equipos from './text';
+
 export default function Header() {
-    return (
-        <View style={styles.headerStyle}>
-      <Equipos texto="Equipo1"></Equipos>
-      <Equipos texto="Equipo2"></Equipos>
-      <Equipos texto="Equipo3"></Equipos>
-      </View>
-    );
+  const equipos = ['Equipo1', 'Equipo2', 'Equipo3'];
 
-
+  return (
+    <View style={styles.headerStyle}>
+      {equipos.map((equipo, index) => (
+        <Equipos key={index} texto={equipo} />
+      ))}
+    </View>
+  );
 }
+
 const styles = StyleSheet.create({
-    headerStyle:{
-        borderWidth: 2,
-        borderColor: '#000000',
-        height:100,
-        flexDirection: "row",
-        alignItems: "center",
-        }
-  });
+  headerStyle: {
+    borderWidth: 2,
+    borderColor: '#000000',
+    height: 100,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+});
