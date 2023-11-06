@@ -1,14 +1,21 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Equipos from './text';
 
-export default function Header() {
+export default function Header({ onEquipoSeleccionado }) {
+    console.log('onEquipoSeleccionado:', onEquipoSeleccionado);
   const equipos = ['Equipo1', 'Equipo2', 'Equipo3'];
+
+  const handleEquipoClick = (equipo) => {
+    onEquipoSeleccionado(equipo);
+  };
 
   return (
     <View style={styles.headerStyle}>
       {equipos.map((equipo, index) => (
-        <Equipos key={index} texto={equipo} />
+        <TouchableOpacity key={index} onPress={() => handleEquipoClick(equipo)}>
+          <Equipos texto={equipo} />
+        </TouchableOpacity>
       ))}
     </View>
   );

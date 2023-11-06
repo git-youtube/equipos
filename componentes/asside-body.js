@@ -1,17 +1,35 @@
 import { View, StyleSheet } from "react-native";
-import React from "react";
+import React, { Component } from "react";
 import Asside from "./asside";
 import Body from "./body";
-export default function AssideBody() {
-    return (
-        <View style={styles.bodyStyle}>
-            <Body />
-            <Asside />
-        </View>
-    );
+import Jugador from "./jugador";
+export default class AssideBody extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            jugadorSeleccionado: "Jugador1"
+        }
+    }
 
+    jugadorSeleccionado = (jugador) => {
+        console.log('jugador', jugador);
+        this.setState({jugadorSeleccionado: jugador})
+    }
 
+    render() {
+        const { jugadorSeleccionado } = this.state;
+        const { equipoSeleccionado } = this.props;
+        return (
+            <View style={styles.bodyStyle}>
+                <Body equipoSeleccionado={equipoSeleccionado} jugadorSeleccionado={this.jugadorSeleccionado} />
+                <Asside jugadorSeleccionado={jugadorSeleccionado}/>
+            </View>
+        );
+    }
+   
 }
+
+
 const styles = StyleSheet.create({
     bodyStyle: {
         borderWidth: 2,

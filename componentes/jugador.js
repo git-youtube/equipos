@@ -1,15 +1,14 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 
 export default function Jugador(props) {
     return (
         <View>
-            <Text style={styles.equipos}>{props.texto}</Text>
+            <TouchableOpacity style={styles.equipos} onPress={() => props.jugadorSeleccionado(props.texto)}><Text>{props.texto}</Text></TouchableOpacity>
         </View>
     );
-
-
 }
+
 const styles = StyleSheet.create({
     equipos: {
         fontSize: 16,
