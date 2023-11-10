@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import Jugadores from './jugador';
 import { useState } from 'react';
+import Jugador from './jugador';
 
-export default class Body extends Component{
+export default class Body extends Component {
   render() {
     const jugadoresPorEquipo = {
       Equipo1: ['Jugador1', 'Jugador2', 'Jugador3', 'Jugador4', 'Jugador5'],
@@ -11,14 +11,25 @@ export default class Body extends Component{
       Equipo3: ['Jugador11', 'Jugador12', 'Jugador13', 'Jugador14', 'Jugador15'],
     };
 
-    const { jugadorSeleccionado } = this.props;
-    const {equipoSeleccionado} = this.props;
+    const { jugadorSeleccionado, equipoSeleccionado, JugadorSeleccionado } = this.props;
     return (
       <View>
         {equipoSeleccionado && jugadoresPorEquipo[equipoSeleccionado].map((jugador, index) => (
-          <Jugadores key={index} texto={jugador}  jugadorSeleccionado={jugadorSeleccionado}/>
+          <Jugador
+            key={index}
+            texto={jugador}
+            jugadorSeleccionado={jugadorSeleccionado}
+            JugadorSeleccionado={JugadorSeleccionado}
+          />
         ))}
       </View>
     );
   }
 }
+
+
+
+
+
+
+

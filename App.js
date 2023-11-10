@@ -16,7 +16,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Header onEquipoSeleccionado={handleEquipoSeleccionado} />
-      <AssideBody equipoSeleccionado={equipoSeleccionado} /> {/* Pasa equipoSeleccionado como prop */}
+      <AssideBody equipoSeleccionado={equipoSeleccionado} /> 
       <Footer />
     </View>
   );
